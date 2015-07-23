@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @winery.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @winery.location %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @winery.website %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @winery.image %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @winery.phone_number %>
+</p>
+
+<p>
+  <strong>Visitors:</strong>
+  <%= @winery.visitors %>
+</p>
+
+<p>
+  <strong>Tours:</strong>
+  <%= @winery.tours %>
+</p>
+
+<p>
+  <strong>Pets:</strong>
+  <%= @winery.pets %>
+</p>
+
+<%= link_to 'Edit', edit_winery_path(@winery) %> |
+<%= link_to 'Back', wineries_path %>

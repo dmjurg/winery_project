@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Wineries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Website</th>
+      <th>Image</th>
+      <th>Phone number</th>
+      <th>Visitors</th>
+      <th>Tours</th>
+      <th>Pets</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wineries.each do |winery| %>
+      <tr>
+        <td><%= winery.name %></td>
+        <td><%= winery.location %></td>
+        <td><%= winery.website %></td>
+        <td><%= winery.image %></td>
+        <td><%= winery.phone_number %></td>
+        <td><%= winery.visitors %></td>
+        <td><%= winery.tours %></td>
+        <td><%= winery.pets %></td>
+        <td><%= link_to 'Show', winery %></td>
+        <td><%= link_to 'Edit', edit_winery_path(winery) %></td>
+        <td><%= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Winery', new_winery_path %>
