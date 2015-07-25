@@ -29,3 +29,11 @@ wineries = Winery.create([
   {name: 'Chateau Morrisette', location: 'Floyd, VA', website: 'www.thedogs.com', phone_number: '540-593-2865', visitors: true, pets: true},
   {name: 'Blenheim Vineyards', location: 'Charlottesville, VA', website: 'www.blenheimvineyards.com', phone_number: '434-293-5366', visitors: true, pets: true}
   ])
+
+wines = Wine.create([
+  {varietal: 'Viognier'},
+  {varietal: 'Cabernet Franc'},
+  {varietal: 'White Blend'},
+  {varietal: 'Red Blend'},
+  {varietal: 'Sparkling'}
+  ])
