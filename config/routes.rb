@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :wines
-  resources :ratings
   resources :wineries
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

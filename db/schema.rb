@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723211848) do
+ActiveRecord::Schema.define(version: 20150725140910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ratings", force: :cascade do |t|
     t.float    "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "score"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +38,11 @@ ActiveRecord::Schema.define(version: 20150723211848) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users_wineries", id: false, force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.integer "winery_id", null: false
+  end
+
   create_table "wineries", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
@@ -42,6 +54,11 @@ ActiveRecord::Schema.define(version: 20150723211848) do
     t.boolean  "pets"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "wineries_wines", id: false, force: :cascade do |t|
+    t.integer "winery_id", null: false
+    t.integer "wine_id",   null: false
   end
 
   create_table "wines", force: :cascade do |t|
