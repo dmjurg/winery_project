@@ -32,8 +32,19 @@ wineries = Winery.create([
 
 wines = Wine.create([
   {varietal: 'Viognier'},
+  {varietal: 'Petit Manseng'},
+  {varietal: 'Riesling'},
+  {varietal: 'Chardonnay'},
+  {varietal: 'Sauvignon Blanc'},
+  {varietal: 'Seyval Blanc'},
+  {varietal: 'Vidal Blanc'},
   {varietal: 'Cabernet Franc'},
-  {varietal: 'White Blend'},
-  {varietal: 'Red Blend'},
+  {varietal: 'Merlot'},
+  {varietal: 'Cabernet Sauvignon'},
+  {varietal: 'Norton'},
+  {varietal: 'Petit Verdot'},
+  {varietal: 'Chambourcin'},
+  {varietal: 'Rose'},
+  {varietal: 'Fruit'},
   {varietal: 'Sparkling'}
   ])
