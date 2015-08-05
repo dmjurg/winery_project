@@ -11,12 +11,13 @@ Winery.destroy_all
 Wine.destroy_all
 Review.destroy_all
 
-users = User.create([
-  {name: 'Diana', email: 'dmjurg@gmail.com', location: 'Washington, DC', image: 'https://cdn-img-0.wanelo.com/p/060/b9a/379/11fdf56feb41513b1e57db0/x354-q80.jpg'},
-  {name: 'Kristin', email: 'kristin@kristin.com', location: 'Charlotte, NC', image: 'http://www.jamesandeverett.com/whatscooking/wp-content/uploads/2012/12/champgn.toast_GP0472-834x1024.jpg'},
-  {name: 'Alison', email: 'alison@alison.com', location: 'Charlottesville, VA', image: 'http://atodmagazine.com/wp-content/uploads/2014/03/wine-stoppers-pc-and-mac-1073571.jpg'},
-  {name: 'Cat', email: 'cat@cat.com', location: 'Washington, DC', image: 'http://chimpingz.com/wp-content/uploads/2010/05/Jasper.jpg'},
-  {name: 'Sara', email: 'sara@sara.com', location: 'Norfolk, VA', image: 'http://bentonfinewine.com/home/wp-content/uploads/2013/01/wine_glassbottle_illustration.png'}
+users = User.create!([
+  {name: 'Diana', email: 'dmjurg@gmail.com', location: 'Washington, DC', image: 'https://cdn-img-0.wanelo.com/p/060/b9a/379/11fdf56feb41513b1e57db0/x354-q80.jpg', password: 'diana'},
+  {name: 'Kristin', email: 'kristin@kristin.com', location: 'Charlotte, NC', image: 'http://www.jamesandeverett.com/whatscooking/wp-content/uploads/2012/12/champgn.toast_GP0472-834x1024.jpg', password: 'kristin'},
+  {name: 'Alison', email: 'alison@alison.com', location: 'Charlottesville, VA', image: 'http://atodmagazine.com/wp-content/uploads/2014/03/wine-stoppers-pc-and-mac-1073571.jpg', password: 'alison'},
+  {name: 'Cat', email: 'cat@cat.com', location: 'Washington, DC', image: 'http://chimpingz.com/wp-content/uploads/2010/05/Jasper.jpg', password: 'cat'},
+  {name: 'Sara', email: 'sara@sara.com', location: 'Norfolk, VA', image: 'http://bentonfinewine.com/home/wp-content/uploads/2013/01/wine_glassbottle_illustration.png', password: 'sara'},
+  {name: 'SK', email: 'sk@sk.com', location: 'Lynchburg, VA', image: 'http://previews.123rf.com/images/damedeeso/damedeeso1209/damedeeso120900005/15179290-french-dog-wine-baguette-beret-Stock-Photo-france.jpg', password: 'sk'}
   ])
 
 wineries = Winery.create([

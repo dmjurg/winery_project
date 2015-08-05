@@ -1,5 +1,31 @@
+$settings: (
+    maxWidth: 800px,
+    columns: 12,
+    margin: 15px,
+    breakpoints: (
+        xs: "(max-width : 480px)",
+        sm: "(max-width : 768px) and (min-width: 481px)",
+        md: "(max-width : 1024px)  and (min-width: 769px)",
+        lg: "(min-width : 1025px)"
+    )
+);
+@mixin renderGridStyles($settings){
+  $breakpoints: map-get($settings, "breakpoints");
+  @each $key, $breakpoint in $breakpoints {
+    @include media($breakpoint) {
+
+    }
+  }
+}
+
+$primaryColor: lemonChiffon;
+$fontSize: 20px !default;
+
+// to use columns (for ex: .container{width:$container-width;} and .col-4{width: $container-width/4})
+$container-width: 100%;
+
 body {
-  background-color: #fff;
+  background-color: $primaryColor;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;

@@ -3,6 +3,7 @@
 <head>
   <title>Wineries</title>
   <!-- REMOVED TURBOLINKS -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' => true %>
   <%= csrf_meta_tags %>
@@ -10,8 +11,19 @@
 <body>
 
   <div id="user_header">
-    <%= link_to "Sign Up", new_user_path %>
-  </div>  
+    <% if current_user %>
+      Logged in under <%= current_user.email %>
+      <%= link_to "Log Out", logout_path %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path %> or
+      <%= link_to "Log In", login_path %>
+    <% end %>
+  </div>
+
+  <div id="site_nav">
+    <%= link_to "Users", users_path %>
+    <%= link_to "Wineries", wineries_path %>
+  </div>
 
 <%= yield %>
 
