@@ -16,8 +16,7 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @winery.image %>
+  <img src= "<%= @winery.image %>">
 </p>
 
 <p>
@@ -39,6 +38,10 @@
   <strong>Pets:</strong>
   <%= @winery.pets %>
 </p>
+ 
 
+<% if current_user %>
+  <%= link_to 'Add to Favorites', favorite_winery_path(@winery), :method => :post %>
+<% end %>
 <%= link_to 'Edit', edit_winery_path(@winery) %> |
 <%= link_to 'Back', wineries_path %>

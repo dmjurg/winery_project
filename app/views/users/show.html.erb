@@ -16,8 +16,19 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
   <img src= "<%=@user.image%>">
+</p>
+
+<p>
+  <strong>Wineries <%= @user.name %> has visited:</strong>
+  <ul class="user_wineries">
+    <% for winery in @user.wineries %>
+    <li>
+      <%= link_to winery.name, winery_path(winery) %>
+      <%= link_to "Remove", unfavorite_winery_path(winery), :method => :post %>
+    </li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :reviews
-  resources :wines
-  resources :wineries
+  resources :wineries do
+    get 'favorite', on: :member
+    post 'unfavorite', on: :member
+  end
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.

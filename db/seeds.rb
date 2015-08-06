@@ -8,7 +8,6 @@
 
 User.destroy_all
 Winery.destroy_all
-Wine.destroy_all
 Review.destroy_all
 
 users = User.create!([
@@ -29,23 +28,4 @@ wineries = Winery.create([
   {name: 'Willowcroft Farm Vineyards', location: 'Leesburg, VA', website: 'www.willowcroftwine.com', phone_number: '703-777-8161', visitors: true, pets: true},
   {name: 'Chateau Morrisette', location: 'Floyd, VA', website: 'www.thedogs.com', phone_number: '540-593-2865', visitors: true, pets: true},
   {name: 'Blenheim Vineyards', location: 'Charlottesville, VA', website: 'www.blenheimvineyards.com', phone_number: '434-293-5366', visitors: true, pets: true}
-  ])
-
-wines = Wine.create([
-  {varietal: 'Viognier'},
-  {varietal: 'Petit Manseng'},
-  {varietal: 'Riesling'},
-  {varietal: 'Chardonnay'},
-  {varietal: 'Sauvignon Blanc'},
-  {varietal: 'Seyval Blanc'},
-  {varietal: 'Vidal Blanc'},
-  {varietal: 'Cabernet Franc'},
-  {varietal: 'Merlot'},
-  {varietal: 'Cabernet Sauvignon'},
-  {varietal: 'Norton'},
-  {varietal: 'Petit Verdot'},
-  {varietal: 'Chambourcin'},
-  {varietal: 'Rose'},
-  {varietal: 'Fruit'},
-  {varietal: 'Sparkling'}
   ])

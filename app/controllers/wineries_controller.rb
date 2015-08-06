@@ -1,14 +1,12 @@
 class WineriesController < ApplicationController
-  before_action :set_winery, only: [:show, :edit, :update, :destroy]
+  before_action :set_winery, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite]
 
   # GET /wineries
-  # GET /wineries.json
   def index
-    @wineries = Winery.all
+    @wineries = Winery.alphabetical
   end
 
   # GET /wineries/1
-  # GET /wineries/1.json
   def show
   end
 
@@ -22,43 +20,38 @@ class WineriesController < ApplicationController
   end
 
   # POST /wineries
-  # POST /wineries.json
   def create
     @winery = Winery.new(winery_params)
-
-    respond_to do |format|
-      if @winery.save
-        format.html { redirect_to @winery, notice: 'Winery was successfully created.' }
-        format.json { render :show, status: :created, location: @winery }
-      else
-        format.html { render :new }
-        format.json { render json: @winery.errors, status: :unprocessable_entity }
-      end
+    if @winery.save
+      redirect_to @winery, notice: 'Winery was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /wineries/1
-  # PATCH/PUT /wineries/1.json
   def update
-    respond_to do |format|
-      if @winery.update(winery_params)
-        format.html { redirect_to @winery, notice: 'Winery was successfully updated.' }
-        format.json { render :show, status: :ok, location: @winery }
-      else
-        format.html { render :edit }
-        format.json { render json: @winery.errors, status: :unprocessable_entity }
-      end
+    if @winery.update(winery_params)
+      redirect_to @winery, notice: 'Winery was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /wineries/1
-  # DELETE /wineries/1.json
-  def destroy
-    @winery.destroy
-    respond_to do |format|
-      format.html { redirect_to wineries_url, notice: 'Winery was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  # def destroy
+  #   @winery.destroy
+  #   redirect_to wineries_url, notice: 'Winery was successfully destroyed.'
+  # end
+
+  def favorite
+    current_user.wineries << @winery
+    redirect_to current_user
+  end
+
+  def unfavorite
+    current_user.wineries.delete(@winery)
+    redirect_to current_user
   end
 
   private

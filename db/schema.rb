@@ -51,15 +51,4 @@ ActiveRecord::Schema.define(version: 20150725151724) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "wineries_wines", id: false, force: :cascade do |t|
-    t.integer "winery_id", null: false
-    t.integer "wine_id",   null: false
-  end
-
-  create_table "wines", force: :cascade do |t|
-    t.string   "varietal"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
