@@ -11,7 +11,17 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # begin/rescue is used when you think an exception or error might be triggered
+    begin
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # telling ruby to only run the code for errors of this type
+    rescue ActiveRecord::RecordNotFound
+      session[:user_id] = nil
+    end
   end
+
+  # helper_method makes the method available in the views as opposed to just in
+  # the controllers that inherit from here
   helper_method :current_user
+
 end
