@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p> <%= link_to 'Back', wineries_path %>
 
 <p>
   <strong>Name:</strong>
@@ -39,12 +39,23 @@
   <%= @winery.pets %>
 </p>
 
-
 <% if current_user %>
+<p>
+  <%= link_to 'Add a Review', new_winery_review_path(@winery) %>
   <%= link_to 'Add to Favorites', favorite_winery_path(@winery), method: :post %>
+</p>
 <% end %>
+
+<p>
+  <strong>Reviews:</strong>
+  <ul>
+  <% @winery.reviews.each do |review| %>
+    <li><%= review.score %>/10 - <%= review.content %></li>
+  <% end %>
+  </ul>
+</p>
+
 <% if current_user.admin %>
   <%= link_to 'Edit Winery', edit_winery_path(@winery) %> |
   <%= link_to 'Delete Winery', @winery, method: :delete %> |
 <% end %>
-<%= link_to 'Back', wineries_path %>

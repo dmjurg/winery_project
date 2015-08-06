@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :reviews
   resources :wineries do
     post 'favorite', on: :member
     post 'unfavorite', on: :member
+    # nested reviews because they belong to wineries - makes sure the winery id is in
+    # the url when we build the review
+    # additionally, rails helps generate the nested routes (incl. in the form)
+    resources :reviews
   end
   resources :users
   resources :sessions
