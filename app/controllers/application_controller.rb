@@ -20,8 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_is_admin?
+    current_user && current_user.admin
+  end
+
   # helper_method makes the method available in the views as opposed to just in
   # the controllers that inherit from here
   helper_method :current_user
+  helper_method :user_is_admin?
 
 end

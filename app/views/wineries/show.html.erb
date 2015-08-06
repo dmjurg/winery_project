@@ -50,12 +50,12 @@
   <strong>Reviews:</strong>
   <ul>
   <% @winery.reviews.each do |review| %>
-    <li><%= review.score %>/10 - <%= review.content %></li>
+    <li><%= review.score %>/10 - <%= review.content %> (<%= review.user.name %>)</li>
   <% end %>
   </ul>
 </p>
 
-<% if current_user.admin %>
+<% if user_is_admin? %>
   <%= link_to 'Edit Winery', edit_winery_path(@winery) %> |
   <%= link_to 'Delete Winery', @winery, method: :delete %> |
 <% end %>
