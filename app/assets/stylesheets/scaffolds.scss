@@ -21,6 +21,10 @@ $settings: (
 $primaryColor: lemonChiffon;
 $fontSize: 20px !default;
 
+img {
+  max-height: 400px;
+}
+
 // to use columns (for ex: .container{width:$container-width;} and .col-4{width: $container-width/4})
 $container-width: 100%;
 

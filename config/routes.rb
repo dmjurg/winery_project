@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :reviews
   resources :wineries do
-    get 'favorite', on: :member
+    post 'favorite', on: :member
     post 'unfavorite', on: :member
   end
   resources :users
